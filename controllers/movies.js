@@ -44,13 +44,9 @@ module.exports.createMovie = (req, res, next) => {
 };
 
 module.exports.findMovies = (req, res, next) => {
-  Movie.find({})
-    .then((card) => {
-      if (!card) {
-        next(new NotFoundError('Запрашиваемый фильм не найден'));
-      }
-      return res.send(card);
-    })
+  const owner = req.user._id;
+  Movie.find({ owner })
+    .then((movie) => res.send(movie))
     .catch(next);
 };
 
