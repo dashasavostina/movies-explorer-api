@@ -48,11 +48,11 @@ const movieSchema = new mongoose.Schema(
         message: 'Некорректный URL',
       },
     },
-    nameRu: {
+    nameRU: {
       type: String,
       required: [true, 'Поле "nameRu" должно быть заполнено'],
     },
-    nameEn: {
+    nameEN: {
       type: String,
       required: [true, 'Поле "nameEn" должно быть заполнено'],
     },
